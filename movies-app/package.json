@@ -1,0 +1,36 @@
+{
+  "name": "wc",
+  "version": "1.0.0",
+  "description": "App - Movies in which it is used  Webpack and Web-components/",
+  "private": true,
+  "scripts": {
+    "watch": "webpack --watch",
+    "start": "webpack serve --open",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Krasimir-Kostadinow/wc.git"
+  },
+  "author": "hvanatOtgorata",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Krasimir-Kostadinow/wc/issues"
+  },
+  "homepage": "https://krasimir-kostadinow.github.io/wc",
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@vaadin/router": "^1.7.5",
+    "lit-html": "^2.6.1",
+    "webpack": "^5.76.1",
+    "webpack-cli": "^5.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.3",
+    "@babel/preset-env": "^7.20.2",
+    "babel-loader": "^9.1.2",
+    "raw-loader": "^4.0.2",
+    "webpack-dev-server": "^4.12.0"
+  },
+  "keywords": []
+}
