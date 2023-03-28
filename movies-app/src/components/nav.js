@@ -2,7 +2,7 @@ import { html, render } from 'lit-html';
 
 
 const template = (ctx) => html`<nav class="navbar navbar-expand-lg navbar-dark bg-dark" class="container">
-<a class="navbar-brand text-light" href="/wc/movies-app">Movies</a>
+<a class="navbar-brand text-light" href="/wc/movies-app/">Movies</a>
 <ul class="navbar-nav ml-auto">
 ${ctx.userInfo.isLogged 
 ?  html` <li class="nav-item">
