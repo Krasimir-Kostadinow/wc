@@ -1,17 +1,15 @@
 {
-  "name": "movies-webpack-webcomponents",
+  "name": "wc",
   "version": "1.0.0",
   "description": "App - Movies in which it is used  Webpack and Web-components/",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
     "start": "webpack serve --open",
     "build": "webpack"
   },
-  "author": "hvanatOtgorata",
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.18.6",
-    "axios": "^1.3.4",
+    "@vaadin/router": "^1.7.5",
     "lit-html": "^2.6.1",
     "webpack": "^5.76.1",
     "webpack-cli": "^5.0.1"
