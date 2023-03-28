@@ -24,7 +24,7 @@ export function registerUser(event) {
         .then((data) => {
             if (data.idToken) {
                 notifications('Successful registration!');
-                Router.go('/login');
+                Router.go('/wc/movies-app/login');
             } else {
                 notifications(data.error.message, 'error');
             }
@@ -46,7 +46,7 @@ export function loginUser(event) {
             if (data.idToken) {
                 localStorage.setItem('userInfo', JSON.stringify({ isLogged: true, email: data.email, idToken: data.idToken, uid: data.localId }));
                 notifications('Login successful.');
-                Router.go('/home');
+                Router.go('/wc/movies-app/home');
             } else {
                 notifications(data.error.message, 'error');
             }

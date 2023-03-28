@@ -7,7 +7,7 @@ export class Logout extends HTMLElement {
     }
     connectedCallback() {
         localStorage.removeItem('userInfo');
-        Router.go('/');
+        Router.go('/wc/movies-app/');
         notifications('Successful logout');
     }
 };
