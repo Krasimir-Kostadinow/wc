@@ -27,28 +27,28 @@ const routerHeader = new Router(header);
 
 routerHeader.setRoutes([
     {
-        path: '/movies-app/',
+        path: '/wc/movies-app/',
         component: 'nav-component'
     },
     {
-        path: '/movies-app/index.html',
+        path: '/wc/movies-app/index.html',
         component: 'nav-component'
     },
     {
-        path: '/movies-app/home',
+        path: '/wc/movies-app/home',
         component: 'nav-component'
     },
 
     {
-        path: '/movies-app/register',
+        path: '/wc/movies-app/register',
         component: 'nav-component'
     },
     {
-        path: '/movies-app/login',
+        path: '/wc/movies-app/login',
         component: 'nav-component'
     },
     {
-        path: '/movies-app/logout',
+        path: '/wc/movies-app/logout',
         component: 'nav-component'
     }
     
@@ -58,28 +58,28 @@ const routerContainer = new Router(container);
 routerContainer.setRoutes([
 
     {
-        path: '/movies-app/index.html',
+        path: '/wc/movies-app/index.html',
         component: 'home-componnt'
     },
     {
-        path: '/movies-app/',
+        path: '/wc/movies-app/',
         component: 'home-component'
     },
     {
-        path: '/movies-app/home',
+        path: '/wc/movies-app/home',
         component: 'home-component'
     },
 
     {
-        path: '/movies-app/register',
+        path: '/wc/movies-app/register',
         component: 'register-component'
     },
     {
-        path: '/movies-app/login',
+        path: '/wc/movies-app/login',
         component: 'login-component'
     },
     {
-        path: '/movies-app/logout',
+        path: '/wc/movies-app/logout',
         component: 'logout-component'
     }
     
