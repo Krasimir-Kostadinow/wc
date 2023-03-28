@@ -7,7 +7,7 @@
     <p class="lead">Unlimited movies, TV shows, and more. Watch anywhere. Cancel anytime.</p>
 </div> 
 ${this.userInfo.isLogged?Ce`<movies-component></movies-component>`:ke}
-`,this,{eventContext:this})}}function Je(e,t,n,r){return fetch(function(e,t){return"auth"===t?`${e}AIzaSyAClDSbq3bjaJZmbGgsk_Xmw-fu9cinEB8`:"data"===t?`https://movies-d7fb7-default-rtdb.europe-west1.firebasedatabase.app/${e}.json`:void 0}(t,e),{method:n,headers:{"Content-Type":"application/json"},body:JSON.stringify(r)}).then((e=>e.json()))}function ze(e){let t,n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"success";switch(n){case"success":t=document.getElementById("successBox");break;case"error":t=document.getElementById("errorBox")}t.textContent=e,t.parentElement.style.display="block","success"===n?setTimeout((()=>{t.textContent="Message...",t.parentElement.style.display="none"}),3e3):t.parentElement.addEventListener("click",(()=>{t.textContent="Message...",t.parentElement.style.display="none"}))}class Ke extends HTMLElement{constructor(){super()}connectedCallback(){const e=JSON.parse(localStorage.getItem("userInfo"));this.userInfo=e||{isLogged:!1,email:""},this.render()}onSubmit(e){!function(e){e.preventDefault();const{email:t,password:n}=e.target.elements;Je("auth","https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=","POST",{email:t.value,password:n.value}).then((e=>{e.idToken?(localStorage.setItem("userInfo",JSON.stringify({isLogged:!0,email:e.email,idToken:e.idToken,uid:e.localId})),ze("Login successful."),re.go("/home")):ze(e.error.message,"error")})).catch((e=>{console.error(e.message)}))}(e)}render(){Fe(Ce`
+`,this,{eventContext:this})}}function Je(e,t,n,r){return fetch(function(e,t){return"auth"===t?`${e}AIzaSyAClDSbq3bjaJZmbGgsk_Xmw-fu9cinEB8`:"data"===t?`https://movies-d7fb7-default-rtdb.europe-west1.firebasedatabase.app/${e}.json`:void 0}(t,e),{method:n,headers:{"Content-Type":"application/json"},body:JSON.stringify(r)}).then((e=>e.json()))}function ze(e){let t,n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"success";switch(n){case"success":t=document.getElementById("successBox");break;case"error":t=document.getElementById("errorBox")}t.textContent=e,t.parentElement.style.display="block","success"===n?setTimeout((()=>{t.textContent="Message...",t.parentElement.style.display="none"}),3e3):t.parentElement.addEventListener("click",(()=>{t.textContent="Message...",t.parentElement.style.display="none"}))}class Ke extends HTMLElement{constructor(){super()}connectedCallback(){const e=JSON.parse(localStorage.getItem("userInfo"));this.userInfo=e||{isLogged:!1,email:""},this.render()}onSubmit(e){!function(e){e.preventDefault();const{email:t,password:n}=e.target.elements;Je("auth","https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=","POST",{email:t.value,password:n.value}).then((e=>{e.idToken?(localStorage.setItem("userInfo",JSON.stringify({isLogged:!0,email:e.email,idToken:e.idToken,uid:e.localId})),ze("Login successful."),re.go("/wc/movies-app/home")):ze(e.error.message,"error")})).catch((e=>{console.error(e.message)}))}(e)}render(){Fe(Ce`
 <form class="text-center border border-light p-5" @submit=${this.onSubmit}>
     <div class="form-group">
         <label for="email">Email</label>
@@ -19,7 +19,7 @@ ${this.userInfo.isLogged?Ce`<movies-component></movies-component>`:ke}
     </div>
 
     <button type="submit" class="btn btn-primary">Login</button>
-</form>`,this,{eventContext:this})}}class qe extends HTMLElement{constructor(){super()}connectedCallback(){this.render()}onSubmit(e){e.preventDefault(),function(e){e.preventDefault();const{email:t,password:n,repeatPassword:r}=e.target.elements;n.value.length<6?ze("Password must length more 6 character","error"):n.value===r.value?Je("auth","https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=","POST",{email:t.value,password:n.value}).then((e=>{e.idToken?(ze("Successful registration!"),re.go("/login")):ze(e.error.message,"error")})).catch((e=>{console.log(e.message)})):ze("Password and repeat Password not match.","error")}(e)}render(){Fe(Ce`<form class="text-center border border-light p-5" @submit=${this.onSubmit}>
+</form>`,this,{eventContext:this})}}class qe extends HTMLElement{constructor(){super()}connectedCallback(){this.render()}onSubmit(e){e.preventDefault(),function(e){e.preventDefault();const{email:t,password:n,repeatPassword:r}=e.target.elements;n.value.length<6?ze("Password must length more 6 character","error"):n.value===r.value?Je("auth","https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=","POST",{email:t.value,password:n.value}).then((e=>{e.idToken?(ze("Successful registration!"),re.go("/wc/movies-app/login")):ze(e.error.message,"error")})).catch((e=>{console.log(e.message)})):ze("Password and repeat Password not match.","error")}(e)}render(){Fe(Ce`<form class="text-center border border-light p-5" @submit=${this.onSubmit}>
     <div class="form-group">
         <label for="email">Email</label>
         <input type="email" class="form-control" placeholder="Email" name="email" value="">
@@ -35,7 +35,7 @@ ${this.userInfo.isLogged?Ce`<movies-component></movies-component>`:ke}
     </div>
 
     <button type="submit" class="btn btn-primary">Register</button>
-</form>`,this,{eventContext:this})}}class Ze extends HTMLElement{constructor(){super()}connectedCallback(){localStorage.removeItem("userInfo"),re.go("/"),ze("Successful logout")}}class Ge extends HTMLElement{constructor(){super()}connectedCallback(){this.render()}render(){var e;Fe(Ce`<div class="card mb-4">
+</form>`,this,{eventContext:this})}}class Ze extends HTMLElement{constructor(){super()}connectedCallback(){localStorage.removeItem("userInfo"),re.go("/wc/movies-app/"),ze("Successful logout")}}class Ge extends HTMLElement{constructor(){super()}connectedCallback(){this.render()}render(){var e;Fe(Ce`<div class="card mb-4">
     <img class="card-img-top" src="${(e=this).data[1].imageUrl}" alt='${e.data[1].title}' width="400">
     <div class="card-body">
         <h4 class="card-title">${e.data[1].title}</h4>
@@ -61,18 +61,18 @@ ${this.userInfo.isLogged?Ce`<movies-component></movies-component>`:ke}
         </div>
     </div>
 </div>`,this,{eventContext:this})}}class Xe extends HTMLElement{constructor(){super(),this.isLogged=!1}connectedCallback(){const e=JSON.parse(localStorage.getItem("userInfo"));this.userInfo=e||{isLogged:!1,email:""},this.render()}render(){Fe(Ce`<nav class="navbar navbar-expand-lg navbar-dark bg-dark" class="container">
-<a class="navbar-brand text-light" href="/">Movies</a>
+<a class="navbar-brand text-light" href="/wc/movies-app">Movies</a>
 <ul class="navbar-nav ml-auto">
 ${this.userInfo.isLogged?Ce` <li class="nav-item">
         <a class="nav-link">Welcome, ${this.userInfo.email}</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/logout">Logout</a>
+        <a class="nav-link" href="/wc/movies-app/logout">Logout</a>
     </li>`:Ce` <li class="nav-item">
-        <a class="nav-link" href="/login">Login</a>
+        <a class="nav-link" href="/wc/movies-app/login">Login</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/register">Register</a>
+        <a class="nav-link" href="/wc/movies-app/register">Register</a>
     </li>`}
 </ul>
 </nav>
