@@ -61,7 +61,7 @@ ${this.userInfo.isLogged?Ce`<movies-component></movies-component>`:ke}
         </div>
     </div>
 </div>`,this,{eventContext:this})}}class Xe extends HTMLElement{constructor(){super(),this.isLogged=!1}connectedCallback(){const e=JSON.parse(localStorage.getItem("userInfo"));this.userInfo=e||{isLogged:!1,email:""},this.render()}render(){Fe(Ce`<nav class="navbar navbar-expand-lg navbar-dark bg-dark" class="container">
-<a class="navbar-brand text-light" href="/wc/movies-app/">Movies</a>
+<a class="navbar-brand text-light" href="/wc/movies-app/home">Movies</a>
 <ul class="navbar-nav ml-auto">
 ${this.userInfo.isLogged?Ce` <li class="nav-item">
         <a class="nav-link">Welcome, ${this.userInfo.email}</a>
