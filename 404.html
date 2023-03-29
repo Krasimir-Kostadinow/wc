@@ -216,6 +216,7 @@
         const main = document.getElementById('container');
         if (header.textContent === '' && main.textContent === '') {
             errorBox.textContent = 'The page is not found. You can return to the main page from here.'
+            errorBox.parentElement.style.display = 'block';
         }
        
     </script>
