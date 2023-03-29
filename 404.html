@@ -210,6 +210,15 @@
                 Applications</a>
         </div>
     </footer>
+    <script>
+        const errorBox = document.getElementById('errorBox');
+        const header = document.getElementById('header');
+        const main = document.getElementById('container');
+        if (header.textContent === '' && main.textContent === '') {
+            errorBox.textContent = 'The page is not found. You can return to the main page from here.'
+        }
+       
+    </script>
 </body>
 
 </html>
