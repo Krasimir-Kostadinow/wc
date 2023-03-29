@@ -213,9 +213,9 @@
     <script>
         const errorBox = document.getElementById('errorBox');
         const header = document.getElementById('header');
-        const main = document.getElementById('container');
-        if (header.textContent === '' && main.textContent === '') {
-            errorBox.textContent = 'The page is not found. You can return to the main page from here.'
+        console.log(header.innerHTML);
+        if (header.innerHTML !== '') {
+            errorBox.innerHTML = 'The page is not found. You can return to the main page from <a href="https://krasimir-kostadinow.github.io/wc/movies-app/">here</a>.'
             errorBox.parentElement.style.display = 'block';
         }
        
