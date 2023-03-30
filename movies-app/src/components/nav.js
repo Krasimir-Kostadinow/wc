@@ -27,12 +27,10 @@ ${ctx.userInfo.isLogged
 
 export class Navigation extends HTMLElement {
 
-
-
     constructor() {
         super();
         this.isLogged = false;
-        this.setAttribute('id', 'nav-component');
+     
     }
 
     connectedCallback() {
