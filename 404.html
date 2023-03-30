@@ -203,7 +203,7 @@
 
     <footer class="page-footer font-small">
         <div class="footer-copyright text-center py-3">© 2023
-            <a href="https://softuni.bg/trainings/2840/js-applications-june-2020/internal" class="text-dark">JS
+            <a href="https://softuni.bg" class="text-dark">JS
                 Applications</a>
         </div>
     </footer>
@@ -215,6 +215,9 @@
             const errorBox = document.getElementById('errorBox');
             errorBox.innerHTML = `The page is not found. You can return to the home page from <a href="https://krasimir-kostadinow.github.io/wc/movies-app/">here</a>.`;
             errorBox.parentElement.style.display = 'block';
+            errorBox.addEventListener('click', function (event) {
+                event.target.style.display = 'none';
+            })
         }
         console.log('I`m here');
     </script>
