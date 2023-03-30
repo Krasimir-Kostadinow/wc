@@ -210,9 +210,12 @@
     <script src="./bundle.js"></script>
     <script>
         const header = document.getElementById('header');
-        console.log(header.firstChild);
-        console.log(header.cloneNode(true));
-
+      
+        if (header.firstChild === null) {
+            const errorBox = document.getElementById('errorBox');
+            errorBox.innerHTML = `The page is not found. You can return to the home page from <а href="https://krasimir-kostadinow.github.io/wc/movies-app/">here</а>.`;
+            errorBox.parentElement.style.display = 'block';
+        }
         console.log('I`m here');
     </script>
 
