@@ -215,8 +215,8 @@
             const errorBox = document.getElementById('errorBox');
             errorBox.innerHTML = `The page is not found. You can return to the home page from <a href="https://krasimir-kostadinow.github.io/wc/movies-app/">here</a>.`;
             errorBox.parentElement.style.display = 'block';
-            errorBox.addEventListener('click', function (event) {
-                event.target.style.display = 'none';
+            errorBox.firstChild.addEventListener('click', function (event) {
+                event.target.parentElement.parentElement.style.display = 'none';
             })
         }
         console.log('I`m here');
