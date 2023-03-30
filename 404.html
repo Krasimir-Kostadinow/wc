@@ -207,15 +207,13 @@
                 Applications</a>
         </div>
     </footer>
-    <script src="./bundle.js" defer></script>
+    <script src="./bundle.js"></script>
     <script>
-        let header = document.getElementById('header');
-        let myComponent = document.getElementsByTagName('nav-component')[0];
-        let myNav = header.getElementsByTagName('nav-component')[0];
-        console.log(header);
-        console.log(myComponent);
-        console.log(myNav);
+        const header = document.getElementById('header');
+        console.log(header.firstChild);
+        console.log(header.cloneNode(true));
 
+        console.log('I`m here');
     </script>
 
 </body>
