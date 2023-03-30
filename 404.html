@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-
-    <script src="./bundle.js" defer></script>
-
 </head>
 
 <body>
@@ -210,6 +207,16 @@
                 Applications</a>
         </div>
     </footer>
+    <script src="./bundle.js" defer></script>
+    <script>
+        let header = document.getElementById('header');
+        let myComponent = document.getElementsByTagName('nav-component')[0];
+        let myNav = header.getElementsByTagName('nav-component')[0];
+        console.log(header);
+        console.log(myComponent);
+        console.log(myNav);
+
+    </script>
 
 </body>
 
