@@ -1,9 +1,6 @@
 import { request } from './requestServices';
 import { notifications } from "../common";
 import { Router } from '@vaadin/router';
-import { html, render } from 'lit-html';
-
-
 
 
 export function registerUser(event) {
@@ -20,11 +17,11 @@ export function registerUser(event) {
         return;
     }
 
-    request('auth', 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=', 'POST', { email: email.value, password: password.value })
+    request('auth', 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=', 'POST', { email: email.value, password: password.value, returnSecureToken: true })
         .then((data) => {
             if (data.idToken) {
                 notifications('Successful registration!');
-                Router.go('/wc/movies-app/login');
+                Router.go('/login');
             } else {
                 notifications(data.error.message, 'error');
             }
@@ -40,13 +37,14 @@ export function loginUser(event) {
     const { email, password } = event.target.elements;
     request('auth', 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=', 'POST', {
         email: email.value,
-        password: password.value
+        password: password.value,
+        returnSecureToken: true
     })
         .then((data) => {
             if (data.idToken) {
                 localStorage.setItem('userInfo', JSON.stringify({ isLogged: true, email: data.email, idToken: data.idToken, uid: data.localId }));
                 notifications('Login successful.');
-                Router.go('/wc/movies-app/home');
+                Router.go('/home');
             } else {
                 notifications(data.error.message, 'error');
             }

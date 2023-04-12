@@ -5,21 +5,27 @@ function host(url, type) {
     if (type === 'auth') {
         return `${url}${apiKey}`;
     } else if (type === 'data') {
-        return `${baseUrl}${url}.json`;
+        return `${baseUrl}${url}`;
     }
 
 
 }
 
 export function request(type, url, methods, body) {
+    try {
+        return fetch(host(url, type), {
+            method: methods,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        })
+            .then((res) => res.json())
+            .catch((error) => console.log(error.message));
+    } catch (error) {
+        console.log('Session timeout');
+    }
 
-    return fetch(host(url, type), {
-        method: methods,
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(body)
-    })
-        .then((res) => res.json());
+
 
 };

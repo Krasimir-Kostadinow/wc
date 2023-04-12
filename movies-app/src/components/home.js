@@ -1,5 +1,5 @@
 import { html, render, nothing } from 'lit-html';
-import { request } from '../services/requestServices.js';
+
 const template = (ctx) =>
     html`
     <div class="jumbotron jumbotron-fluid text-light" style="background-color: #343a40;">

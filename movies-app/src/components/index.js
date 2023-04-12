@@ -5,3 +5,6 @@ export * from './logout';
 export * from './movie-card';
 export * from './movies';
 export * from './nav';
+export * from './add-movie';
+export * from './details';
+export * from './edit-movie'

@@ -2,21 +2,21 @@ import { html, render } from 'lit-html';
 
 
 const template = (ctx) => html`<nav class="navbar navbar-expand-lg navbar-dark bg-dark" class="container">
-<a class="navbar-brand text-light" href="/wc/movies-app/home">Movies</a>
+<a class="navbar-brand text-light" href="/home">Movies</a>
 <ul class="navbar-nav ml-auto">
 ${ctx.userInfo.isLogged 
 ?  html` <li class="nav-item">
         <a class="nav-link">Welcome, ${ctx.userInfo.email}</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/wc/movies-app/logout">Logout</a>
+        <a class="nav-link" href="/logout">Logout</a>
     </li>`
     :
    html` <li class="nav-item">
-        <a class="nav-link" href="/wc/movies-app/login">Login</a>
+        <a class="nav-link" href="/login">Login</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/wc/movies-app/register">Register</a>
+        <a class="nav-link" href="/register">Register</a>
     </li>`
 }
 </ul>
@@ -26,11 +26,9 @@ ${ctx.userInfo.isLogged
 
 
 export class Navigation extends HTMLElement {
-
     constructor() {
         super();
         this.isLogged = false;
-     
     }
 
     connectedCallback() {

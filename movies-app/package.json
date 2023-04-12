@@ -4,7 +4,6 @@
   "description": "App - Movies in which it is used  Webpack and Web-components/",
   "scripts": {
     "watch": "webpack --watch",
-    "start": "webpack serve --open",
     "build": "webpack"
   },
   "dependencies": {
@@ -18,8 +17,7 @@
     "@babel/core": "^7.21.3",
     "@babel/preset-env": "^7.20.2",
     "babel-loader": "^9.1.2",
-    "raw-loader": "^4.0.2",
-    "webpack-dev-server": "^4.12.0"
+    "raw-loader": "^4.0.2"
   },
   "keywords": []
 }
