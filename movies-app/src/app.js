@@ -1,18 +1,9 @@
 
 import {Router} from '@vaadin/router';
 import * as components from './components';
-// import { notifications } from './common';
-
-// import Register from '../components/register.js';
-// import Login from '../components/login.js';
-// import Logout from '../components/logout.js';
-// import Movies from '../components/movies.js';
-// import MovieCard from '../components/movie-card.js';
-
 
 const header = document.getElementById('header');
 const container = document.getElementById('container');
-
 
 customElements.define('nav-component', components.Navigation);
 customElements.define('home-component', components.Home);
@@ -34,36 +25,35 @@ routerHeader.setRoutes([
         component: 'nav-component'
     },
     {
-        path: 'wc/movies-app/',
+        path: '/wc/movies-app/',
         component: 'nav-component'
     },
     {
-        path: 'movies-app/home',
-        component: 'nav-component'
-    },
-
-    {
-        path: '/movies-app/register',
+        path: '/wc/movies-app/home',
         component: 'nav-component'
     },
     {
-        path: '/movies-app/login',
+        path: '/wc/movies-app/register',
         component: 'nav-component'
     },
     {
-        path: '/movies-app/logout',
+        path: '/wc/movies-app/login',
         component: 'nav-component'
     },
     {
-        path: '/movies-app/addMovie',
+        path: '/wc/movies-app/logout',
         component: 'nav-component'
     },
     {
-        path: '/movies-app/details/:id',
+        path: '/wc/movies-app/addMovie',
         component: 'nav-component'
     },
     {
-        path: '/movies-app/editMovie/:id',
+        path: '/wc/movies-app/details/:id',
+        component: 'nav-component'
+    },
+    {
+        path: '/wc/movies-app/editMovie/:id',
         component: 'nav-component'
     }
     
@@ -73,40 +63,39 @@ const routerContainer = new Router(container);
 routerContainer.setRoutes([
 
     {
-        path: '/movies-app/index.html',
+        path: '/wc/movies-app/index.html',
         component: 'home-component'
     },
     {
-        path: '/movies-app/',
+        path: '/wc/movies-app/',
         component: 'home-component'
     },
     {
-        path: '/movies-app/home',
+        path: '/wc/movies-app/home',
         component: 'home-component'
     },
-
     {
-        path: '/movies-app/register',
+        path: '/wc/movies-app/register',
         component: 'register-component'
     },
     {
-        path: '/movies-app/login',
+        path: '/wc/movies-app/login',
         component: 'login-component'
     },
     {
-        path: '/movies-app/logout',
+        path: '/wc/movies-app/logout',
         component: 'logout-component'
     },
     {
-        path: '/movies-app/addMovie',
+        path: '/wc/movies-app/addMovie',
         component: 'add-movie-component'
     },
     {
-        path: '/movies-app/details/:id',
+        path: '/wc/movies-app/details/:id',
         component: 'movie-details-component'
     },
     {
-        path: '/movies-app/editMovie/:id',
+        path: '/wc/movies-app/editMovie/:id',
         component: 'edit-movie-component'
     }
     
