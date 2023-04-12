@@ -30,40 +30,40 @@ const routerHeader = new Router(header);
 
 routerHeader.setRoutes([
     {
-        path: '/index.html',
+        path: '/movies-app/index.html',
         component: 'nav-component'
     },
     {
-        path: '/',
+        path: '/movies-app/',
         component: 'nav-component'
     },
     {
-        path: '/home',
+        path: '/movies-app/home',
         component: 'nav-component'
     },
 
     {
-        path: '/register',
+        path: '/movies-app/register',
         component: 'nav-component'
     },
     {
-        path: '/login',
+        path: '/movies-app/login',
         component: 'nav-component'
     },
     {
-        path: '/logout',
+        path: '/movies-app/logout',
         component: 'nav-component'
     },
     {
-        path: '/addMovie',
+        path: '/movies-app/addMovie',
         component: 'nav-component'
     },
     {
-        path: '/details/:id',
+        path: '/movies-app/details/:id',
         component: 'nav-component'
     },
     {
-        path: '/editMovie/:id',
+        path: '/movies-app/editMovie/:id',
         component: 'nav-component'
     }
     
@@ -73,40 +73,40 @@ const routerContainer = new Router(container);
 routerContainer.setRoutes([
 
     {
-        path: '/index.html',
+        path: '/movies-app/index.html',
         component: 'home-component'
     },
     {
-        path: '/',
+        path: '/movies-app/',
         component: 'home-component'
     },
     {
-        path: '/home',
+        path: '/movies-app/home',
         component: 'home-component'
     },
 
     {
-        path: '/register',
+        path: '/movies-app/register',
         component: 'register-component'
     },
     {
-        path: '/login',
+        path: '/movies-app/login',
         component: 'login-component'
     },
     {
-        path: '/logout',
+        path: '/movies-app/logout',
         component: 'logout-component'
     },
     {
-        path: '/addMovie',
+        path: '/movies-app/addMovie',
         component: 'add-movie-component'
     },
     {
-        path: '/details/:id',
+        path: '/movies-app/details/:id',
         component: 'movie-details-component'
     },
     {
-        path: '/editMovie/:id',
+        path: '/movies-app/editMovie/:id',
         component: 'edit-movie-component'
     }
     
