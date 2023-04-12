@@ -4,14 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Application 2023</title>
-    <meta http-equiv=”Permissions-Policy” content=”interest-cohort=()”>
     <link href="./static/favicon.ico" rel="icon" type="image/x-icon" />
     <link href="./static/css/site.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-
-    <script src="./bundle.js" defer></script>
 
 </head>
 
@@ -27,190 +24,13 @@
     </div>
     <div class='container' id="container"></div>
 
-    <!-- <main id="app"></main>
-
-        <script type="text/handlebars-x-template" id="home-template">
-        {{> header}}
-    <div class="jumbotron jumbotron-fluid text-light" style="background-color: #343a40;">
-        <img src="https://s.studiobinder.com/wp-content/uploads/2019/06/Best-M-Night-Shyamalan-Movies-and-Directing-Style-StudioBinder.jpg"
-            class="img-fluid" alt="Responsive image">
-        <h1 class="display-4">Movies</h1>
-        <p class="lead">Unlimited movies, TV shows, and more. Watch anywhere. Cancel anytime.</p>
-    </div> 
-    {{#if isLogged}} 
-    <h1 class="text-center">Movies</h1>
-    <section>
-        <a href="/addMovie" class="btn btn-warning" onclick= 'navigateHandler(event)'>Add Movie</a>
-        <form class="search float-right" onSubmit = 'searchMovie(event)'>
-            <label>Search: </label>
-            <input type="text" name = 'searchName'>
-            <input type="submit" class="btn btn-info" value="Search">
-        </form>
-    </section>
-    
-    <div class=" mt-3 ">
-        <div class="row d-flex d-wrap">
-             <div class="card-deck d-flex justify-content-center">
-    {{#if movies}}
-       {{#if searchMovies}}
-         {{#each searchMovies}}
-           {{> card}}
-         {{/each}}
-        {{else}}
-         {{#each movies}}
-         {{> card}}
-         {{/each}}
-       {{/if}}
-  
-    {{else}}
-<h3>No movies...</h3>
-    {{/if}}
-            </div>
-        </div>
-    </div>
-{{/if}}
-</script>
-        <script type="text/handlebars-x-template" id="card-template">
-     <div class="card mb-4">
-                    <img class="card-img-top" src="{{imageUrl}}" alt="{{title}}" width="400">
-                    <div class="card-body">
-                        <h4 class="card-title">{{title}}</h4>
-                    </div>
-                    <div class="card-footer">
-                        <a href="/details:{{key}}"><button type="button" class="btn btn-info">Details</button></a>
-                    </div>
-    
-                </div>
-</script>
-        <script type="text/handlebars-x-template" id="add-movie">
-    {{> header}}
-    {{#if isLogged}}
-    <form class="text-center border border-light p-5" onSubmit='addMovie(event)'>
-        <h1>Add Movie</h1>
-        <div class="form-group">
-            <label for="title">Movie Title</label>
-            <input type="text" class="form-control" placeholder="Title" name="title" value="">
-        </div>
-        <div class="form-group">
-            <label for="description">Movie Description</label>
-            <textarea class="form-control" placeholder="Description" name="description"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="imageUrl">Image url</label>
-            <input type="text" class="form-control" placeholder="Image Url" name="imageUrl" value="">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-    {{/if}}
-
-</script>
-        <script type="text/handlebars-x-template" id="template-details">
-            {{> header}}
-            {{#if isLogged}}
-    <div class="container">
-        <div class="row bg-light text-dark">
-        <h1>Movie title: {{movie.title}}</h1>
-            
-            <div class="col-md-8">
-                <img class="img-thumbnail" src={{movie.imageUrl}} alt={{movie.title}}>
-            </div>
-            <div class="col-md-4 text-center">
-                <h3 class="my-3 ">Movie Description</h3>
-                <p>{{movie.description}}</p>
-                {{#if movie.isCreator}}
-                <a class="btn btn-danger" onclick='deleteMovie(event)'>Delete</a>
-                <a class="btn btn-warning" href="/editMovie">Edit</a>
-                <span class="enrolled-span">Liked {{movie.likeds}}</span>
-                {{else}}
-                {{#if movie.isLiked}}
-                <span class="enrolled-span">Liked {{movie.likeds}}</span>
-                {{else}}
-                <a class="btn btn-primary" onclick='likeMovie(event)'>Like</a>
-                {{/if}}
-             
-                {{/if}}
-            </div>
-        </div>
-    </div>
-    {{else}}
-    <h3>You are not logged in</h3>
-    {{/if}}
-
-
-</script>
-        <script type="text/handlebars-x-tempalte" id="edit-form-template">
-            {{> header}}
-    <form class="text-center border border-light p-5" onSubmit='editMovie(event)'>
-        <h1>Edit Movie</h1>
-        <div class="form-group">
-            <label for="title">Movie Title</label>
-            <input type="text" class="form-control" placeholder="Movie Title" value= '{{movie.title}}' name="title">
-        
-        <div class="form-group">
-            <label for="description">Movie Description</label>
-            <textarea class="form-control" placeholder="Movie Description..." name="description">{{movie.description}}</textarea>
-        </div>
-        <div class="form-group">
-            <label for="imageUrl">Image url</label>
-            <input type="text" class="form-control" placeholder="Image Url" value="{{movie.imageUrl}}" name="imageUrl">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form></script>
-        
-    
-        <script type="text/handlebars-x-tempalte" id="login-form-template">
-            {{> header}}
-            {{#if isLogged}}
-            <h3>You are logged.</h3>
-            {{else}}
-            <form class="text-center border border-light p-5" onSubmit = loginUser(event)>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" placeholder="Email" name="email" value="">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" placeholder="Password" name="password" value="">
-                </div>
-
-                <button type="submit" class="btn btn-primary">Login</button>
-            </form>
-            {{/if}}
-        </script>
-
-        <script type="text/handlebars-x-template" id="register-form-template">
-            {{> header}}
-            {{#if isLogged}}
-            <h3>You are made register.</h3>
-            {{else}}
-            <form class="text-center border border-light p-5" onSubmit='registerUser(event)'>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" placeholder="Email" name="email" value="">
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" placeholder="Password" name="password" value="">
-            </div>
-
-            <div class="form-group">
-                <label for="repeatPassword">Repeat Password</label>
-                <input type="password" class="form-control" placeholder="Repeat-Password" name="repeatPassword"
-                    value="">
-            </div>
-
-            <button type="submit" class="btn btn-primary">Register</button>
-        </form>
-    {{/if}}
-    </script>
--->
-
     <footer class="page-footer font-small">
         <div class="footer-copyright text-center py-3">© 2023
-            <a href="https://softuni.bg" class="text-dark">JS
+            <a href="https://softuni.bg/trainings/2840/js-applications-june-2020/internal" class="text-dark">JS
                 Applications</a>
         </div>
     </footer>
+    <script src="./bundle.js"></script>
 </body>
 
 </html>
