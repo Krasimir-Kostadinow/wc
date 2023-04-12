@@ -30,15 +30,15 @@ const routerHeader = new Router(header);
 
 routerHeader.setRoutes([
     {
-        path: '/movies-app/index.html',
+        path: '/wc/movies-app/index.html',
         component: 'nav-component'
     },
     {
-        path: '/movies-app/',
+        path: 'wc/movies-app/',
         component: 'nav-component'
     },
     {
-        path: '/movies-app/home',
+        path: 'movies-app/home',
         component: 'nav-component'
     },
 
