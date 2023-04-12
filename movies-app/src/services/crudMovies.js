@@ -33,7 +33,7 @@ export function addMovie(event) {
     request('data', `/.json?auth=${userInfo.idToken}`, 'POST', body)
         .then((data) => {
             notifications('Successfully added movie!');
-            Router.go('/home');
+            Router.go('/wc/movies-app/home');
         })
         .catch((error) => {
             notifications(error.message, 'error');
@@ -46,7 +46,7 @@ export function deleteMovie(pathName) {
     request('data', `/${pathName}.json?auth=${userInfo.idToken}`, 'DELETE')
         .then(() => {
             notifications('Successfully deleted movie!');
-            Router.go('/home');
+            Router.go('/wc/movies-app/home');
         })
         .catch((error) => {
             notifications(error.message, 'error');
@@ -76,7 +76,7 @@ export function editMovie(event, pathName) {
     request('data', `/${pathName}.json?auth=${userInfo.idToken}`, 'PATCH', body)
         .then((data) => {
             notifications('Successfully edited movie!');
-            Router.go(`/details/${pathName}`);
+            Router.go(`/wc/movies-app/details/${pathName}`);
         })
         .catch((error) => {
             notifications(error.message, 'error');
@@ -94,7 +94,7 @@ export function addedLikedMovie(pathName) {
                 likeds: newLikeds
             }).then(() => {
                 notifications(`Successfully liked movie ${title}!`);
-                Router.go(`/home`);
+                Router.go(`/wc/movies-app/home`);
             }).catch((error) => {
                 notifications(error.message, 'error');
             })

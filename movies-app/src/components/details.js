@@ -18,7 +18,7 @@ ${ctx.userInfo.isLogged ?
 
     ${ctx.movie.owner
                 ? html`<a class="btn btn-danger" @click=${ctx.deleteMovie}>Delete</a>
-    <a class="btn btn-warning" href="/editMovie/${ctx.location.params.id}">Edit</a>
+    <a class="btn btn-warning" href="/wc/movies-app/editMovie/${ctx.location.params.id}">Edit</a>
     <span class="enrolled-span">Liked ${ctx.movie.likeds.length - 1}</span>`
                 : html`
                 ${ctx.movie.isExistLike ? html`<span class="enrolled-span">Liked ${ctx.movie.likeds.length - 1}</span>`

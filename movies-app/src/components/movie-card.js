@@ -6,7 +6,7 @@ const template = (ctx) => html`<div class="card mb-4">
         <h4 class="card-title">${ctx.data[1].title}</h4>
     </div>
     <div class="card-footer">
-        <a href="/details/${ctx.data[0]}"><button type="button" class="btn btn-info">Details</button></a>
+        <a href="/wc/movies-app/details/${ctx.data[0]}"><button type="button" class="btn btn-info">Details</button></a>
     </div>
 
 </div>`;

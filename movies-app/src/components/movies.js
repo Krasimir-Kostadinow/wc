@@ -6,7 +6,7 @@ import { notifications } from '../common';
 
 const template = (ctx) => html`<h1 class="text-center">Movies</h1>
 <section>
-    <a href="/addMovie" class="btn btn-warning">Add Movie</a>
+    <a href="/wc/movies-app/addMovie" class="btn btn-warning">Add Movie</a>
     <form class="search float-right" @submit=${ctx.searchMovie}>
         <label>Search: </label>
         <input type="text" name='searchName'>
