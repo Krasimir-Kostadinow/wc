@@ -12,20 +12,15 @@ function host(url, type) {
 }
 
 export function request(type, url, methods, body) {
-    try {
-        return fetch(host(url, type), {
-            method: methods,
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(body)
-        })
-            .then((res) => res.json())
-            .catch((error) => console.log(error.message));
-    } catch (error) {
-        console.log('Session timeout');
-    }
 
-
+    return fetch(host(url, type), {
+        method: methods,
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    })
+        .then((res) => res.json())
+        .catch((error) => console.log(error.message));
 
 };

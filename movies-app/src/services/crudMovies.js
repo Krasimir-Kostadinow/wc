@@ -3,12 +3,14 @@ import { notifications } from "../common";
 import { Router } from '@vaadin/router';
 
 
-let userInfo = JSON.parse(localStorage.getItem('userInfo'));
-userInfo = userInfo ? userInfo : { isLogged: false, email: '' };
+
 
 
 
 export function addMovie(event) {
+    let userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    userInfo = userInfo ? userInfo : { isLogged: false, email: '' };
+
     const { description, imageUrl, title } = event.target.elements;
     if (title.value.length <= 0) {
         notifications('The Movie Title field must be filled', 'error');
@@ -42,8 +44,9 @@ export function addMovie(event) {
 };
 
 export function deleteMovie(pathName) {
+    let userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    userInfo = userInfo ? userInfo : { isLogged: false, email: '' };
     const uid = userInfo.uid;
-    console.log(pathName);
     request('data', `/${pathName}.json?auth=${userInfo.idToken}`, 'DELETE')
         .then(() => {
             notifications('Successfully deleted movie!');
@@ -55,6 +58,8 @@ export function deleteMovie(pathName) {
 };
 
 export function editMovie(event, pathName) {
+    let userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    userInfo = userInfo ? userInfo : { isLogged: false, email: '' };
     const { description, imageUrl, title } = event.target.elements;
     if (title.value.length <= 0) {
         notifications('The Movie Title field must be filled', 'error');
@@ -85,6 +90,8 @@ export function editMovie(event, pathName) {
 };
 
 export function addedLikedMovie(pathName) {
+    let userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    userInfo = userInfo ? userInfo : { isLogged: false, email: '' };
 
     request('data', `${pathName}.json?auth=${userInfo.idToken}`, 'GET')
         .then((data) => {
