@@ -102,7 +102,6 @@ export function addedLikedMovie(pathName) {
                 likeds: newLikeds
             }).then(() => {
                 notifications(`Successfully liked movie ${title}!`);
-                Router.go(`/wc/movies-app/home`);
             }).catch((error) => {
                 notifications(error.message, 'error');
             })

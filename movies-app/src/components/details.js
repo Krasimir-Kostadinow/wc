@@ -22,7 +22,8 @@ ${ctx.userInfo.isLogged ?
     <span class="enrolled-span">Liked ${ctx.movie.likeds.length - 1}</span>`
                 : html`
                 ${ctx.movie.isExistLike ? html`<span class="enrolled-span">Liked ${ctx.movie.likeds.length - 1}</span>`
-                        : html`<a class="btn btn-primary" @click=${ctx.likeMovie}>Like</a>`}               
+                        : html`<span class="enrolled-span">Liked ${ctx.movie.likeds.length - 1}</span>
+                               <a class="btn btn-primary" @click=${ctx.likeMovie}>Like</a>`}               
   `}
   
 </div>
@@ -83,9 +84,14 @@ export class Details extends HTMLElement {
     }
 
     likeMovie = () => {
+        let userInfo = JSON.parse(localStorage.getItem('userInfo'));
+        userInfo = userInfo ? userInfo : { isLogged: false, email: '' };
         const pathName = this.location.params.id;
         addedLikedMovie(pathName);
-
+        this.movie.isExistLike = true;
+        this.movie.likeds.push(userInfo.email);
+        this.render();
+        
     }
 
 }
