@@ -49,6 +49,7 @@ export class EditMovie extends HTMLElement {
     onSubmit = (event) => {
         event.preventDefault();
         const pathName = this.location.params.id;
+        console.log(pathName);
         editMovie(event, pathName);
     }
 

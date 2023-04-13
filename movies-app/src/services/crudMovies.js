@@ -43,6 +43,7 @@ export function addMovie(event) {
 
 export function deleteMovie(pathName) {
     const uid = userInfo.uid;
+    console.log(pathName);
     request('data', `/${pathName}.json?auth=${userInfo.idToken}`, 'DELETE')
         .then(() => {
             notifications('Successfully deleted movie!');
