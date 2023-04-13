@@ -1,5 +1,5 @@
 import { request } from './requestServices';
-import { notifications } from "../common";
+import { notifications, sessionTimeout } from "../common";
 import { Router } from '@vaadin/router';
 
 
@@ -34,6 +34,10 @@ export function addMovie(event) {
 
     request('data', `/.json?auth=${userInfo.idToken}`, 'POST', body)
         .then((data) => {
+            if (data.error) {
+                sessionTimeout();
+                return;
+            }
             notifications('Successfully added movie!');
             Router.go('/wc/movies-app/home');
         })
@@ -48,7 +52,11 @@ export function deleteMovie(pathName) {
     userInfo = userInfo ? userInfo : { isLogged: false, email: '' };
     const uid = userInfo.uid;
     request('data', `/${pathName}.json?auth=${userInfo.idToken}`, 'DELETE')
-        .then(() => {
+        .then((data) => {
+            if (data.error) {
+                sessionTimeout();
+                return;
+            }
             notifications('Successfully deleted movie!');
             Router.go('/wc/movies-app/home');
         })
@@ -81,6 +89,10 @@ export function editMovie(event, pathName) {
 
     request('data', `/${pathName}.json?auth=${userInfo.idToken}`, 'PATCH', body)
         .then((data) => {
+            if (data.error) {
+                sessionTimeout();
+                return;
+            }
             notifications('Successfully edited movie!');
             Router.go(`/wc/movies-app/details/${pathName}`);
         })
@@ -95,12 +107,20 @@ export function addedLikedMovie(pathName) {
 
     request('data', `${pathName}.json?auth=${userInfo.idToken}`, 'GET')
         .then((data) => {
+            if (data.error) {
+                sessionTimeout();
+                return;
+            }
             const { ownerId, title, likeds } = data;
             let newLikeds = likeds;
             newLikeds.push(userInfo.email);
             request('data', `${pathName}.json?auth=${userInfo.idToken}`, 'PATCH', {
                 likeds: newLikeds
-            }).then(() => {
+            }).then((data) => {
+                if (data.error) {
+                    sessionTimeout();
+                    return;
+                }
                 notifications(`Successfully liked movie ${title}!`);
             }).catch((error) => {
                 notifications(error.message, 'error');

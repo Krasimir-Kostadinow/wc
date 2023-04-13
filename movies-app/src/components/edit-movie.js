@@ -38,6 +38,10 @@ export class EditMovie extends HTMLElement {
 
         request('data', `${pathName}.json?auth=${token}`, 'GET')
             .then((data) => {
+                if (data.error) {
+                    sessionTimeout();
+                    return;
+                }
                 this.movie = data;
                 this.render();
             }).catch((error) => {

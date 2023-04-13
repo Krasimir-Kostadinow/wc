@@ -63,6 +63,10 @@ export class Movies extends HTMLElement {
  
         request('data', `.json?orderBy="title"&equalTo="${searchName.value}"&auth=${idToken}`, 'GET')
             .then((data) => {
+                if (data.error) {
+                    sessionTimeout();
+                    return;
+                }
                 this.movies = Object.entries(data);
                 if (this.movies.length === 0) {
                     notifications('No movie found with this title.');

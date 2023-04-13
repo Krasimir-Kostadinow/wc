@@ -47,6 +47,10 @@ export class Details extends HTMLElement {
 
         request('data', `${pathName}.json?auth=${token}`, 'GET')
             .then((data) => {
+                if (data.error) {
+                    sessionTimeout();
+                    return;
+                }
                 let userInfo = JSON.parse(localStorage.getItem('userInfo'));
                 userInfo = userInfo ? userInfo : { isLogged: false, email: '' };
                 const { ownerId, } = data;

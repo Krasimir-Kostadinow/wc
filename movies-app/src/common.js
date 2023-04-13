@@ -1,3 +1,5 @@
+import {Router} from '@vaadin/router';
+
 export function notifications(message, type = 'success') {
 
     let notificationsElement;
@@ -30,4 +32,10 @@ export function notifications(message, type = 'success') {
     }
 
 
+};
+
+export function sessionTimeout() {
+    localStorage.removeItem('userInfo');
+    notifications('Session timеout! Please login again.', 'error');
+    Router.go('/wc/movies-app/login');
 };
