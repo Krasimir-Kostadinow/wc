@@ -53,10 +53,6 @@ export function deleteMovie(pathName) {
     const uid = userInfo.uid;
     request('data', `/${pathName}.json?auth=${userInfo.idToken}`, 'DELETE')
         .then((data) => {
-            if (data.error) {
-                sessionTimeout();
-                return;
-            }
             notifications('Successfully deleted movie!');
             Router.go('/wc/movies-app/home');
         })
